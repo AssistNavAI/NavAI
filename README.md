@@ -1,11 +1,4 @@
-# AI Odyssey 2025 demo-project
-<div align="center">
-<img src="./VirtualAIOdysseyLogo.png" width="150" height="150">
-</div>
-<br/>
-
-<b>`TODO` - COMPLETE SLIDES</b>
-<br/><b>[AI Odyssey Demo Template](https://docs.google.com/presentation/d/1YTTtb9FceKOujMN4B6aGOnTijhrqfK9Tw75v7BQY5cA/edit?usp=sharing)</b>
+# NavAI
 
 ## Demo Deployment Instructions
 
