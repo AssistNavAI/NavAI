@@ -1,0 +1,27 @@
+FROM quay.io/modh/cuda-notebooks:cuda-jupyter-minimal-ubi9-python-3.9-2024a-20240829-b5a8318
+
+USER root
+
+RUN yum update -y
+RUN yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-$(rpm -E '%{rhel}').noarch.rpm && yum install -y libtesseract-dev
+RUN yum install -y --nogpgcheck https://mirrors.rpmfusion.org/free/el/rpmfusion-free-release-$(rpm -E %rhel).noarch.rpm https://mirrors.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-$(rpm -E %rhel).noarch.rpm
+#        && dnf config-manager --enable powertools
+RUN echo "assumeyes=1" >> /etc/yum.conf
+
+#RUN dnf -v repolist
+
+#RUN dnf config-manager --enable epel
+#RUN dnf config-manager --enable epel-cisco-openh264
+#RUN dnf config-manager --enable rpmfusion-free-updates
+#RUN dnf config-manager --enable rpmfusion-nonfree-updates
+
+#RUN dnf install -y libavcodec
+#RUN dnf install -y libavformat 
+#RUN dnf install -y libavutil 
+#RUN dnf install -y libswscale 
+#RUN dnf install -y ffmpeg 
+#RUN dnf  install -y libgstreamer-plugins-base1.0-dev 
+#RUN dnf install -y libgstreamer1.0-dev 
+RUN yum install -y libtesseract-dev
+
+USER 1001

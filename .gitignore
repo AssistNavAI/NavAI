@@ -1,0 +1,4 @@
+*.weights
+*-checkpoint.*
+datasets/*
+notebook/runs

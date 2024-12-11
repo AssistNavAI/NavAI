@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NavAI Mobile</title>
+</head>
+<body>
+    <h1>Welcome to NavAI!</h1>
+    <video id="video" autoplay playsinline></video>
+
+    <script type="text/javascript">
+        const video = document.getElementById('video');
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(stream => video.srcObject = stream)
+            .catch(err => console.error('Error accessing camera:', err));
+    </script>
+</body>
+</html>

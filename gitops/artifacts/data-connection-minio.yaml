@@ -1,0 +1,18 @@
+kind: Secret
+apiVersion: v1
+metadata:
+  name: aws-connection-minio
+  namespace: navai
+  labels:
+    opendatahub.io/dashboard: 'true'
+    opendatahub.io/managed: 'true'
+  annotations:
+    opendatahub.io/connection-type: s3
+    openshift.io/display-name: minio
+stringData:
+  AWS_ACCESS_KEY_ID: minio
+  AWS_DEFAULT_REGION: my-region
+  AWS_S3_BUCKET: navai
+  AWS_S3_ENDPOINT: https://minio-api-minio.apps.cluster-q7hm2.q7hm2.sandbox2524.opentlc.com
+  AWS_SECRET_ACCESS_KEY: minio123
+type: Opaque

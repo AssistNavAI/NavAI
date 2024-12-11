@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: navai
+  namespace: openshift-gitops
+spec:
+  destination:
+    server: 'https://kubernetes.default.svc'
+  project: default
+  source:
+    directory:
+      jsonnet: {}
+      recurse: true
+    path: gitops/artifacts
+    repoURL: 'https://gitlab.consulting.redhat.com/ai-odyssey-2025/neural-giants/demo-project.git'
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      selfHeal: true

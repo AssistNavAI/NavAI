@@ -1,0 +1,5 @@
+classes = 1
+train = data/well-cover/train.txt
+valid = data/well-cover/valid.txt
+names = data/well-cover/obj.names
+backup = ../demo-project/backup/
