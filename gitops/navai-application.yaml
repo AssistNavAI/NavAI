@@ -12,7 +12,7 @@ spec:
       jsonnet: {}
       recurse: true
     path: gitops/artifacts
-    repoURL: 'https://gitlab.consulting.redhat.com/ai-odyssey-2025/neural-giants/demo-project.git'
+    repoURL: 'https://github.com/AssistNavAI/NavAI.git'
     targetRevision: HEAD
   syncPolicy:
     automated:
