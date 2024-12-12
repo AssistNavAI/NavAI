@@ -13,6 +13,6 @@ stringData:
   AWS_ACCESS_KEY_ID: minio
   AWS_DEFAULT_REGION: my-region
   AWS_S3_BUCKET: navai
-  AWS_S3_ENDPOINT: https://minio-api-minio.apps.cluster-6rvtx.6rvtx.sandbox1705.opentlc.com
+  AWS_S3_ENDPOINT: https://minio-api-minio.apps.cluster-566r6.566r6.sandbox2594.opentlc.com
   AWS_SECRET_ACCESS_KEY: minio123
 type: Opaque
