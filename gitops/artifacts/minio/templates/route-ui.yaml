@@ -2,6 +2,7 @@ kind: Route
 apiVersion: route.openshift.io/v1
 metadata:
   name: {{ .Values.app }}-ui
+  namespace: minio
   labels:
     app: {{ .Values.app }}
 spec:
