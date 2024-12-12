@@ -1,0 +1,72 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: {{ .Values.app }}
+  labels:
+    app: {{ .Values.app }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Values.app }}
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.app }}
+    spec:
+      containers:
+        - name: {{ .Values.app }}
+          image: quay.io/minio/minio:latest
+          resources:
+            limits:
+              cpu: 500m
+              memory: 2Gi
+          ports:
+            - name: minio-api
+              protocol: TCP
+              containerPort: 9000
+            - name: minio-ui
+              protocol: TCP
+              containerPort: 9090
+          args:
+            - server
+            - /mnt
+            - --console-address
+            - :9090
+          volumeMounts:
+            - name: {{ .Values.app }}
+              mountPath: /mnt
+              subPath: minio
+          readinessProbe:
+            tcpSocket:
+              port: 9000
+            initialDelaySeconds: 5
+            timeoutSeconds: 1
+            periodSeconds: 5
+            successThreshold: 1
+            failureThreshold: 3
+          livenessProbe:
+            tcpSocket:
+              port: 9000
+            initialDelaySeconds: 5
+            timeoutSeconds: 1
+            periodSeconds: 5
+            successThreshold: 1
+            failureThreshold: 3
+          env:
+            - name: MINIO_ROOT_USER
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.app }}
+                  key: user
+            - name: MINIO_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.app }}
+                  key: password
+      volumes:
+        - name: {{ .Values.app }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.app }}
+  strategy:
+    type: Recreate

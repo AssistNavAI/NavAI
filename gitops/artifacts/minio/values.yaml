@@ -1,0 +1,6 @@
+app: minio
+
+user: minio
+password: minio123
+
+storage: 30Gi

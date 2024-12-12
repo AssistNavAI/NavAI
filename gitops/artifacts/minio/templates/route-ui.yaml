@@ -1,0 +1,15 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: {{ .Values.app }}-ui
+  labels:
+    app: {{ .Values.app }}
+spec:
+  to:
+    kind: Service
+    name: {{ .Values.app }}
+  port:
+    targetPort: minio-ui
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
