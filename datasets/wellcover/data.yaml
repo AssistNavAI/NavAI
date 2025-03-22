@@ -1,0 +1,14 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 1
+names: ['wellcover']
+
+roboflow:
+  workspace: jiang-kun
+  project: well-cover
+  version: 8
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/jiang-kun/well-cover/dataset/8
+path: /opt/app-root/src/NavAI/datasets/wellcover
