@@ -1,3 +1,2 @@
-*.weights
 *-checkpoint.*
 notebook/runs
